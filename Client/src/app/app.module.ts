@@ -11,6 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { ContentComponent } from './content/content.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { MangaDetailComponent } from './manga-detail/manga-detail.component';
+import { RoomComponent } from './room/room.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RegisterComponent,
     ContentComponent,
     NewCommentComponent,
-    SidebarComponent
+    SidebarComponent,
+    MangaDetailComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,9 @@
+img{
+    max-width:100%;
+max-height:100%;
+}
+/* styles for '...' */
+
 .block-with-text {
     /* hide text if it more than N lines  */
     overflow: hidden;
@@ -6,7 +12,7 @@
     /* use this value to count block height */
     line-height: 1.2em;
     /* max-height = line-height (1.2) * lines max number (3) */
-    max-height: 2.4em;
+    max-height: 4.8em;
     /* fix problem when last visible word doesn't adjoin right side  */
     text-align: justify;
     /* place for '...' */
