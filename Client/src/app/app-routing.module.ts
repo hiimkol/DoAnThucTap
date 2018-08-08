@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: ContentComponent },
-  { path: 'manga/{id}', component: MangaDetailComponent }
+  { path: 'manga/:id', component: MangaDetailComponent }
 ];
 
 @NgModule({

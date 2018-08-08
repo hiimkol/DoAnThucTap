@@ -2,44 +2,49 @@
     <a class="navbar-brand" routerLink="/">
         <img src="../../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> {{brand}}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" routerLink="/">Home
-                    <span class="sr-only">(current)</span>
-                </a>
+          <span class="sr-only">(current)</span>
+        </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    Category
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Category
+        </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Adventure</a>
+                    <a class="dropdown-item" href="#" *ngFor="let type of types">{{type.name}}</a>
+                    <!-- <a class="dropdown-item" href="#">Adventure</a>
                     <a class="dropdown-item" href="#">Sci-fi</a>
                     <a class="dropdown-item" href="#">Comdy</a>
-                    <a class="dropdown-item" href="#">Horror</a>
+                    <a class="dropdown-item" href="#">Horror</a> -->
                 </div>
             </li>
         </ul>
         <form class="form-inline my-5 my-lg-0 ">
-            <input (keyup)="search(searchBox.value)" #searchBox id="search-box" class="form-control mr-sm-2" type="search" placeholder="Search"
-                aria-label="Search">
+            <input (keyup)="search(searchBox.value)" #searchBox id="search-box" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <ul class="search-result">
                 <li *ngFor="let manga of mangas$ | async">
                     <a routerLink="/manga/{{manga.id}}">
-                        {{manga.name}}
-                    </a>
+            {{manga.name}}
+          </a>
                 </li>
             </ul>
-            <input type="button" class="btn btn-outline-danger" value="Login" routerLink="/login">
-            <input type="button" class="btn btn-outline-success" value="Register" routerLink="/register">
+            <input *ngIf="!currentReader" type="button" class="btn btn-outline-danger" value="Login" routerLink="/login">
+            <input *ngIf="!currentReader" type="button" class="btn btn-outline-success" value="Register" routerLink="/register">
+            <div *ngIf="currentReader" class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{currentReader.name}}
+        </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Truyện đang theo dõi</a>
+                </div>
+            </div>
         </form>
     </div>
 </nav>

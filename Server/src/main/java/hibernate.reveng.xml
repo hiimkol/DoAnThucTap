@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="ComicDB" match-name="author"/>
+  <table-filter match-catalog="ComicDB" match-name="chapter"/>
+  <table-filter match-catalog="ComicDB" match-name="chapter_detail"/>
+  <table-filter match-catalog="ComicDB" match-name="manga"/>
+  <table-filter match-catalog="ComicDB" match-name="manga_author"/>
+  <table-filter match-catalog="ComicDB" match-name="manga_type"/>
+  <table-filter match-catalog="ComicDB" match-name="reader"/>
+  <table-filter match-catalog="ComicDB" match-name="reader_manga"/>
+  <table-filter match-catalog="ComicDB" match-name="type"/>
+</hibernate-reverse-engineering>

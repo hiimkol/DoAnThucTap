@@ -13,6 +13,8 @@ import { NewCommentComponent } from './new-comment/new-comment.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MangaDetailComponent } from './manga-detail/manga-detail.component';
 import { RoomComponent } from './room/room.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PagingComponent } from './paging/paging.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { RoomComponent } from './room/room.component';
     NewCommentComponent,
     SidebarComponent,
     MangaDetailComponent,
-    RoomComponent
+    RoomComponent,
+    ProfileComponent,
+    PagingComponent
   ],
   imports: [
     BrowserModule,
