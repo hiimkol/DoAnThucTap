@@ -10,7 +10,10 @@
                             <p class="block-with-text card-text">{{manga.description}}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <p mr-auto>
+                                <span class="text-primary">Tags: </span>
+                                <span class="badge badge-primary" *ngFor="let type of manga.tags">{{type.name}}</span>
+                            </p>
                         </div>
                     </div>
                 </a>

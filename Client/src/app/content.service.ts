@@ -22,4 +22,9 @@ export class ContentService {
   public getAllType(): Observable<Type[]> {
     return this.http.get<Type[]>(this.baseURL + '/type/all');
   }
+
+  public getTypesOfManga(id: number): Observable<Type[]> {
+    return this.http.get<Type[]>(this.baseURL + '/type?id=' + id);
+  }
+
 }

@@ -9,10 +9,7 @@
             <p class="block-with-text">{{manga.description}}</p>
             <p mr-auto>
                 <span class="text-primary">Tags: </span>
-                <span class="badge badge-primary">Action</span>
-                <span class="badge badge-primary">Comdy</span>
-                <span class="badge badge-primary">Adventure</span>
-                <span class="badge badge-primary">Fantasy</span>
+                <span class="badge badge-primary" *ngFor="let type of manga.tags">{{type.name}}</span>
             </p>
             <button class="btn-danger">Theo dõi</button>
         </div>

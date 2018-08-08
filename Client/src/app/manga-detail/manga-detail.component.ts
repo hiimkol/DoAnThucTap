@@ -19,6 +19,9 @@ export class MangaDetailComponent implements OnInit {
   getManga(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.mangaService.getManga(id)
-      .subscribe(manga => this.manga = manga);
+      .subscribe(manga => {
+      this.manga = manga;
+        this.mangaService.getTypesOfManga(manga.idManga).subscribe(type => this.manga.tags = type);
+      });
   }
 }

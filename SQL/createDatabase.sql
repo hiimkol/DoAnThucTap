@@ -11,7 +11,7 @@ CREATE TABLE `manga` (
 	`id_manga` int NOT NULL AUTO_INCREMENT,
 	`name_manga` varchar(255) NOT NULL,
 	`description` TEXT,
-    `preImage` varchar(255) NOT NULL,
+    `pre_image` varchar(255) NOT NULL,
 	PRIMARY KEY (`id_manga`) 
 );
 
@@ -59,6 +59,8 @@ CREATE TABLE `reader_manga` (
 	PRIMARY KEY (`username`,`id_manga`)
 );
 
+
+
 ALTER TABLE `manga_type` ADD CONSTRAINT `manga_type_fk0` FOREIGN KEY (`id_type`) REFERENCES `type`(`id_type`);
 
 ALTER TABLE `manga_type` ADD CONSTRAINT `manga_type_fk1` FOREIGN KEY (`id_manga`) REFERENCES `manga`(`id_manga`);
@@ -95,6 +97,8 @@ VALUES('Kishimoto Masashi'),
 ('Fujiko F. Fujio'),
 ('Action');
 
+INSERT INTO chapter(
+
 INSERT INTO manga(manga.name_manga, manga.description, manga.preImage)
 VALUES('Naruto','Naruto là một cậu bé có mơ ước trở thành hokage của làng Konoha,được Hokage phong ấn trong người một trong 9 quái vật của thể giới : Cửu vĩ Hồ ly.Vì cho cậu là một con quái vật, ko ai dám chơi với cậu!& Vì muốn được thừa nhận nên rất phá phách.Khi tốt nghiệp trướng ninja, lần đầu tiên cậu đã được thừa nhận và có một người bạn thân là Sasuke.Hai năm sau, Sasuke đã rời bỏ làng lá để đi theo Orochimaru vì muốn đạt được sức mạnh hơn người, và dùng sức mạnh đó để giết người anh của mình.Naruto muốn đem Sasuke trở về, và vì Kakashi ko đủ trình độ nên đã đi theo Jiraiya - một trong tam nin truyền thuyết của Konoha - để học tập thêm cách dùng sức mạnh.Sau hai năm trờ về, Naruto đã 16 tuổi và có nhiều thay đổi! Và những khó khăn nguy hiểm cũng từ đó tăng lên
 2 năm sau Sasuke đã trưởng thành...và đúng với cái tên thiên tài Uchiha cậu đã hạ được Orochimaru ( tất nhiên là lúc hắn đang bị ấn chú của Đệ tam làm yếu nhất ) và phong ấn hắn trong người cậu. Cậu cùng Suigetsu , Juugo và Karin thành lập Mãng xà truy tìm Itachi. Naruto Sakura Choiji Sai Ino Shikamaru Kiba Shino....cũng dần trở thành những ninja mạnh mẽ trụ cột của làng lá. Họ đã hạ được 2 thành viên Akatsuki. Cũng như Sasuke hạ được Deidara
@@ -111,6 +115,8 @@ Cha của Ran, Kogoro Mori (Richard Moore) là một thám tử bất tài. Từ
 
 INSERT INTO manga_type(id_manga,id_type)
 VALUES(1,1),(1,2),(1,3),(1,4),(1,5),(2,6),(2,3),(2,9),(2,10),(3,6),(3,2),(3,7),(3,8),(3,5),(4,6),(4,2),(4,3)
+
+
 
 ALTER TABLE manga AUTO_INCREMENT = 1
 

@@ -35,11 +35,11 @@
           </a>
                 </li>
             </ul>
-            <input *ngIf="!currentReader" type="button" class="btn btn-outline-danger" value="Login" routerLink="/login">
-            <input *ngIf="!currentReader" type="button" class="btn btn-outline-success" value="Register" routerLink="/register">
-            <div *ngIf="currentReader" class="dropdown">
+            <input *ngIf="!readerService.currentReader" type="button" class="btn btn-outline-danger" value="Login" routerLink="/login">
+            <input *ngIf="!readerService.currentReader" type="button" class="btn btn-outline-success" value="Register" routerLink="/register">
+            <div *ngIf="readerService.currentReader" class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{currentReader.name}}
+          {{readerService.currentReader.name}}
         </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Truyện đang theo dõi</a>

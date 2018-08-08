@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.krader.app.model.Manga;
@@ -22,5 +23,10 @@ public class TypeController {
 	public @ResponseBody Iterable<Type> getAllManga() {
 		// This returns a JSON or XML with the users
 		return typeRepo.findAll();
+	}
+	@GetMapping()
+	public @ResponseBody Iterable<Type> getTypesOfManga(@RequestParam(value="id") int id){
+		
+		return typeRepo.findTypesOfMangaId(id);
 	}
 }
