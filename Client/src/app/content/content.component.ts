@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ContentService } from '../content.service';
 import { Manga } from '../model/Manga';
 import { Type } from '../model/Type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -10,11 +11,11 @@ import { Type } from '../model/Type';
 })
 export class ContentComponent implements OnInit {
   mangas: Manga[];
-  constructor(private contentService: ContentService) { }
+  constructor(private contentService: ContentService, private router: Router) {
+    // this.router.events.subscribe(data => this.mangas = this.contentService.mangas);
+  }
   types: Type[];
   ngOnInit() {
-
-    // this.contentService.getAllManga().subscribe(manga => this.manga = manga);
     this.getMangas();
   }
   getMangas(): void {
@@ -22,10 +23,7 @@ export class ContentComponent implements OnInit {
       this.mangas = manga;
       for (let i = 0; i < this.mangas.length; i++) {
         this.contentService.getTypesOfManga(this.mangas[i].idManga).subscribe(types => this.mangas[i].tags = types);
-
       }
     });
-
   }
-
 }

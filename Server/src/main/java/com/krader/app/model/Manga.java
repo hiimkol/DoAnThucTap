@@ -1,5 +1,5 @@
 package com.krader.app.model;
-// Generated Aug 8, 2018 2:18:36 PM by Hibernate Tools 5.2.11.Final
+// Generated Aug 9, 2018 3:31:01 PM by Hibernate Tools 5.2.11.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,7 +64,7 @@ public class Manga implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "preImage", nullable = false)
+	@Column(name = "pre_image", nullable = false)
 	public String getPreImage() {
 		return this.preImage;
 	}

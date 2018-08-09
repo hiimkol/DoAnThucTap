@@ -6,6 +6,7 @@ import { ContentComponent } from './content/content.component';
 import { MangaDetailComponent } from './manga-detail/manga-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomComponent } from './room/room.component';
+import { ContentTypeComponent } from './content-type/content-type.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'manga/:id', component: MangaDetailComponent },
   { path: 'follow', component: ProfileComponent },
   { path: 'room/:idChapter', component: RoomComponent },
+  { path: 'manga/type/:name', component: ContentTypeComponent },
 ];
 
 @NgModule({

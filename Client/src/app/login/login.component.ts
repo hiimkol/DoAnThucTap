@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ReaderService } from '../reader.service';
 import { Reader } from '../model/Reader';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { BehaviorSubject } from '../../../node_modules/rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({

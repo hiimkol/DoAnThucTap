@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ContentService } from '../content.service';
 import { Manga } from '../model/Manga';
 import { Chapter } from '../model/Chapter';
 import { ReaderService } from '../reader.service';
+import { Observable } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-manga-detail',
@@ -14,12 +15,14 @@ export class MangaDetailComponent implements OnInit {
   manga: Manga;
   chapters: Chapter[];
   isFollow: boolean;
+  load: Observable<any>;
+  loadT
   constructor(private route: ActivatedRoute,
     private mangaService: ContentService,
     private readerService: ReaderService) {
     this.isFollow = false;
-    this.manga = new Manga();
-
+    this.load= 
+    // this.manga = new Manga();
   }
 
   ngOnInit() {
@@ -32,9 +35,12 @@ export class MangaDetailComponent implements OnInit {
         this.manga = manga;
         this.mangaService.getTypesOfManga(this.manga.idManga).subscribe(type => this.manga.tags = type);
         this.mangaService.getListChapter(this.manga.idManga).subscribe(chapters => this.manga.chapter = chapters);
-        this.mangaService.checkFollow(this.manga.idManga, this.readerService.currentReader.username)
-          .subscribe(data => this.isFollow = data);
-
+        if (this.readerService.currentReader) {
+          this.mangaService.checkFollow(this.manga.idManga, this.readerService.currentReader.username)
+            .subscribe(data => this.isFollow = data);
+        } else {
+          this.isFollow = false;
+        }
       });
   }
   doOrDont() {

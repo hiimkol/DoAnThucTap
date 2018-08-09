@@ -14,6 +14,7 @@
         <mapping class="com.krader.app.model.Manga"/>
         <mapping class="com.krader.app.model.ReaderManga"/>
         <mapping class="com.krader.app.model.ChapterDetail"/>
+        <mapping class="com.krader.app.model.Comment"/>
         <mapping class="com.krader.app.model.Chapter"/>
         <mapping class="com.krader.app.model.MangaType"/>
         <mapping class="com.krader.app.model.Author"/>

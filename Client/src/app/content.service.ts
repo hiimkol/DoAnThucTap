@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Manga } from './model/Manga';
-import { Observable } from '../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { Type } from './model/Type';
 import { Chapter } from './model/Chapter';
 import { ChapterContent } from './model/ChapterContent';
 import { Follow } from './model/Follow';
+import { Comment } from './model/Comment';
+import { tap } from '../../node_modules/rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentService {
-
+  mangas: Manga[];
   baseURL = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
@@ -50,5 +52,24 @@ export class ContentService {
   public unSubcribe(username: string, idManga: number): Observable<boolean> {
     console.log(username + ' ' + idManga);
     return this.http.get<boolean>(this.baseURL + '/manga/unsubcribe?username=' + username + '&idManga=' + idManga);
+  }
+
+  public getMangasWithType(name: string): Observable<Manga[]> {
+    return this.http.get<Manga[]>(this.baseURL + '/manga/getMangaWithType?name=' + name);
+  }
+
+  public getCommentsOfManga(id: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(this.baseURL + '/comment/getCommentsOfManga?id=' + id);
+  }
+
+  public postComment(idManga: number, username: string, content: string): Observable<Comment> {
+    return this.http.get<Comment>
+      (this.baseURL + '/comment/add?username=' + username + '&idManga=' + idManga + '&content=' + content);
+  }
+
+  public searchManga(term: string): Observable<Manga[]> {
+    return this.http.get<Manga[]>(this.baseURL + '/manga/search?name=' + term).pipe(
+      tap(data => console.log(data))
+    );
   }
 }

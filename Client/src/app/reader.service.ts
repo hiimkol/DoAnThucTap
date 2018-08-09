@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '../../node_modules/@angular/common/http';
-import { Observable, BehaviorSubject } from '../../node_modules/rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Reader } from './model/Reader';
 import { map, distinctUntilChanged, tap } from 'rxjs/operators';
 

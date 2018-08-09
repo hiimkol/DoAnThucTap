@@ -60,6 +60,15 @@ CREATE TABLE `reader_manga` (
 	PRIMARY KEY (`username`,`id_manga`)
 );
 
+CREATE TABLE `comment`(
+	`id_comment` int NOT NULL AUTO_INCREMENT,
+    `username` varchar(255) NOT NULL,
+    `id_manga` INT NOT NULL,
+    `content` varchar(255) NOT NULL,
+    PRIMARY KEY (`id_comment`)
+);
+
+
 ALTER TABLE `manga_type` ADD CONSTRAINT `manga_type_fk0` FOREIGN KEY (`id_type`) REFERENCES `type`(`id_type`);
 
 ALTER TABLE `manga_type` ADD CONSTRAINT `manga_type_fk1` FOREIGN KEY (`id_manga`) REFERENCES `manga`(`id_manga`);
@@ -76,6 +85,9 @@ ALTER TABLE `reader_manga` ADD CONSTRAINT `reader_manga_fk0` FOREIGN KEY (`usern
 
 ALTER TABLE `reader_manga` ADD CONSTRAINT `reader_manga_fk1` FOREIGN KEY (`id_manga`) REFERENCES `manga`(`id_manga`);
 
+ALTER TABLE `comment` ADD CONSTRAINT `comment_reader_fk0` foreign key (`username`) references `reader`(`username`);
+
+ALTER TABLE `comment` ADD CONSTRAINT `comment_manga_fk0` foreign key (`id_manga`) references `manga`(`id_manga`);
 
 INSERT INTO type(type.name)
 VALUES('Action'),
@@ -110,7 +122,7 @@ Cha của Ran, Kogoro Mori (Richard Moore) là một thám tử bất tài. Từ
 ('Dragon Ball','Các bạn đã quá Quen thuộc với Bộ truyện tranh 7 Viên ngọc rồng lừng lẫy đúng không nào ??? Nhưng chắc chắn bạn chưa một lần "Quen" với một bản truyện chất lượng Cực cao như vầy , Phải nói nó được Edit rõ , đẹp và to chưa từng thấy ( Có trang độ phân giải lên tơí : 4240px × 1536px ), Thậm chí vài Chap đầu còn có màu .... Nói chung Dù đã coi đi coi lại bộ truyện này hơn hai chục lần nhưng mình vẫn cảm thấy Mê mẩn ..... Các bạn cứ thử xem sẽ rõ !!!','https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=http://image.phimmoi.net/post/2017/04/12/772377.jpg');
 
 INSERT INTO manga_type(id_manga,id_type)
-VALUES(1,1),(1,2),(1,3),(1,4),(1,5),(2,6),(2,3),(2,9),(2,10),(3,''6),(3,''2),(3,''7),(3,''8),(3,''5),(4,''6),(4,''2),(4,''3);
+VALUES(1,1),(1,2),(1,3),(1,4),(1,5),(2,6),(2,3),(2,9),(2,10),(3,6),(3,2),(3,7),(3,8),(3,5),(4,6),(4,2),(4,3);
 
 
 INSERT INTO chapter(id_manga,name)

@@ -5,6 +5,7 @@
   <table-filter match-catalog="ComicDB" match-name="author"/>
   <table-filter match-catalog="ComicDB" match-name="chapter"/>
   <table-filter match-catalog="ComicDB" match-name="chapter_detail"/>
+  <table-filter match-catalog="ComicDB" match-name="comment"/>
   <table-filter match-catalog="ComicDB" match-name="manga"/>
   <table-filter match-catalog="ComicDB" match-name="manga_author"/>
   <table-filter match-catalog="ComicDB" match-name="manga_type"/>

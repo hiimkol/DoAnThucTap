@@ -1,5 +1,5 @@
 package com.krader.app.model;
-// Generated Aug 8, 2018 2:18:36 PM by Hibernate Tools 5.2.11.Final
+// Generated Aug 9, 2018 3:31:01 PM by Hibernate Tools 5.2.11.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +22,9 @@ public class Chapter implements java.io.Serializable {
 	public Chapter() {
 	}
 
-	public Chapter(int idManga, String name) {
-		this.idManga = idManga;
+	public Chapter(String name, int idManga) {
 		this.name = name;
+		this.idManga = idManga;
 	}
 
 	@Id
@@ -39,6 +39,15 @@ public class Chapter implements java.io.Serializable {
 		this.idChapter = idChapter;
 	}
 
+	@Column(name = "name", nullable = false)
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Column(name = "id_manga", nullable = false)
 	public int getIdManga() {
 		return this.idManga;
@@ -48,12 +57,4 @@ public class Chapter implements java.io.Serializable {
 		this.idManga = idManga;
 	}
 
-	@Column(name = "name", nullable = false)
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 }

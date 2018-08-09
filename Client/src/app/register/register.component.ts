@@ -20,6 +20,13 @@ export class RegisterComponent implements OnInit {
     email = email.trim();
     if (!name || !password || !name || !email) { return; }
     this.readerService.addHero({ username, password, name, email } as Reader)
-      .subscribe(data => alert('Success'));
+      .subscribe(data => {
+        console.log(data);
+        if (!data) {
+          alert('fail');
+        } else {
+          alert('Success');
+        }
+      });
   }
 }

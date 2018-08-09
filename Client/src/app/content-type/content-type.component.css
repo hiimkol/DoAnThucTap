@@ -1,14 +1,20 @@
-img {
-    max-width: 100%;
-    max-height: 100%;
+.card {
+    width: 13rem;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+
+/* .card-text {
+  word-wrap: break-word;
+} */
 
 
 /* styles for '...' */
-
-a {
-    color: aliceblue
-}
 
 .block-with-text {
     /* hide text if it more than N lines  */
@@ -55,11 +61,4 @@ a {
     margin-top: 0.2em;
     /* bg color = bg color under block */
     background: white;
-}
-.user_name{
-    /* font-size:14px; */
-    font-weight: bold;
-}
-.comments-list .media{
-    border-bottom: 1px dotted #ccc;
 }
