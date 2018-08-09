@@ -16,21 +16,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.krader.app.model.Manga;
+import com.krader.app.model.ReaderManga;
+import com.krader.app.model.ReaderMangaId;
 import com.krader.app.model.Type;
 import com.krader.app.repository.MangaRepo;
 import com.krader.app.repository.MangaTypeRepo;
+import com.krader.app.repository.ReaderMangaRepo;
 import com.krader.app.repository.TypeRepo;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/manga")
 public class MangaController {
-	@Autowired 
+	@Autowired
 	private MangaRepo mangaRepo;
 	@Autowired
 	private MangaTypeRepo mangaTypeRepo;
 	@Autowired
 	private TypeRepo typeRepo;
+	@Autowired
+	private ReaderMangaRepo readerMangaRepo;
 
 	@GetMapping(path = "/all")
 	public @ResponseBody Iterable<Manga> getAllManga() {
@@ -67,4 +72,29 @@ public class MangaController {
 		return mangaRepo.findByIdManga(idNumber);
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/follow")
+	@ResponseBody
+	public Boolean isFollow(@RequestParam(value = "idManga") String idManga,
+			@RequestParam(value = "username") String username) {
+		System.out.println(readerMangaRepo.findById(new ReaderMangaId(username, Integer.parseInt(idManga))));
+		return readerMangaRepo.findById(new ReaderMangaId(username, Integer.parseInt(idManga))).isPresent();
+	}
+
+	@GetMapping("/subcribe")
+	@ResponseBody
+	public ReaderManga subcribe(@RequestParam(value = "idManga") String idManga,
+			@RequestParam(value = "username") String username) {
+		return readerMangaRepo.save(new ReaderManga(new ReaderMangaId(username, Integer.parseInt(idManga))));
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/unsubcribe")
+	@ResponseBody
+	public Boolean unSubcribe(@RequestParam(value = "idManga") String idManga,
+			@RequestParam(value = "username") String username) {
+		
+		readerMangaRepo.delete(new ReaderManga(new ReaderMangaId(username, Integer.parseInt(idManga))));
+		return isFollow(idManga, username);
+	}
 }

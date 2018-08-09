@@ -16,13 +16,15 @@ import javax.persistence.Table;
 public class Chapter implements java.io.Serializable {
 
 	private Integer idChapter;
+	private String name;
 	private int idManga;
 
 	public Chapter() {
 	}
 
-	public Chapter(int idManga) {
+	public Chapter(int idManga, String name) {
 		this.idManga = idManga;
+		this.name = name;
 	}
 
 	@Id
@@ -46,4 +48,12 @@ public class Chapter implements java.io.Serializable {
 		this.idManga = idManga;
 	}
 
+	@Column(name = "name", nullable = false)
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

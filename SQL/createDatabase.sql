@@ -35,6 +35,7 @@ CREATE TABLE `manga_author` (
 
 CREATE TABLE `chapter` (
 	`id_chapter` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
 	`id_manga` int NOT NULL,
 	PRIMARY KEY (`id_chapter`)
 );

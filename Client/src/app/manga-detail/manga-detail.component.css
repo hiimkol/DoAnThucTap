@@ -1,8 +1,14 @@
-img{
-    max-width:100%;
-max-height:100%;
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
+
+
 /* styles for '...' */
+
+a {
+    color: aliceblue
+}
 
 .block-with-text {
     /* hide text if it more than N lines  */
