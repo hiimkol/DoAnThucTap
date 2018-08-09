@@ -72,4 +72,12 @@ export class ContentService {
       tap(data => console.log(data))
     );
   }
+
+  public getMangasFollowed(username: string): Observable<Manga[]> {
+    return this.http.get<Manga[]>(this.baseURL + '/manga/getAllMangaFollowed?name=' + username);
+  }
+
+  public getNewestChapter(id: number): Observable<Chapter> {
+    return this.http.get<Chapter>(this.baseURL + '/chapter/getNewestChapter?id=' + id);
+  }
 }

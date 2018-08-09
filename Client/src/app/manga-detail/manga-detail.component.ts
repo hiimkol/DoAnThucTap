@@ -16,12 +16,12 @@ export class MangaDetailComponent implements OnInit {
   chapters: Chapter[];
   isFollow: boolean;
   load: Observable<any>;
-  loadT
+  // loadT
   constructor(private route: ActivatedRoute,
     private mangaService: ContentService,
     private readerService: ReaderService) {
     this.isFollow = false;
-    this.load= 
+    // this.load=
     // this.manga = new Manga();
   }
 

@@ -17,5 +17,7 @@ public interface MangaRepo extends PagingAndSortingRepository<Manga, Long> {
 	@Query(value="SELECT * FROM manga m WHERE m.name_manga LIKE %:name%", nativeQuery=true)
 	Iterable<Manga> findAllByNameMangaLike(String name);
 	
+	@Query(value="SELECT * FROM manga JOIN reader_manga ON manga.id_manga = reader_manga.id_manga JOIN reader ON reader.username=reader_manga.username WHERE reader.username = :name", nativeQuery=true)
+	Iterable<Manga> getAllMangaFollowed(String name);
 	
 }

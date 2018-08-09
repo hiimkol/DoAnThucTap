@@ -97,12 +97,12 @@ public class MangaController {
 		readerMangaRepo.delete(new ReaderManga(new ReaderMangaId(username, Integer.parseInt(idManga))));
 		return isFollow(idManga, username);
 	}
-//	@GetMapping("/getMangaWithType")
-//	@ResponseBody
-//	public Iterable<Manga> getMangaWithType(@RequestParam(value="name") String name) {
-//		System.out.println(name);
-//		return mangaRepo.findAllByType(name);
-//	}
+	@GetMapping("/getMangaWithType")
+	@ResponseBody
+	public Iterable<Manga> getMangaWithType(@RequestParam(value="name") String name) {
+		System.out.println(name);
+		return mangaRepo.findAllByType(name);
+	}
 	@GetMapping("/search")
 	@ResponseBody
 	public Iterable<Manga> searchByName(@RequestParam(value="name") String name) {
@@ -110,4 +110,13 @@ public class MangaController {
 //		return mangaRepo.findAllByNameMangaLike(name);
 		return mangaRepo.findAllByNameMangaLike(name);
 	}
+	@GetMapping("/getAllMangaFollowed")
+	@ResponseBody
+	public Iterable<Manga> getAllMangaFollowed(@RequestParam(value="name") String name) {
+//		return mangaRepo.findAllByNameMangaLikeIgnoreCase(name);
+//		return mangaRepo.findAllByNameMangaLike(name);
+		System.out.println(name);
+		return mangaRepo.getAllMangaFollowed(name);
+	}
+	
 }

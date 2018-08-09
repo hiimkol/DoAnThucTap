@@ -8,4 +8,5 @@ export class Manga {
     preImage: string;
     tags: Type[];
     chapter: Chapter[];
+    newestChapter: Chapter;
 }

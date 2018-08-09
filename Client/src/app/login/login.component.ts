@@ -20,9 +20,13 @@ export class LoginComponent implements OnInit {
 
   checkLogin(username: string, password: string) {
     this.readerService.checkLogin({ username, password } as Reader).subscribe(reader => {
+      console.log(reader);
+
       if (this.readerService.currentReader != null) {
         this.readerService.currentReader = reader;
         this.router.navigate(['/']);
+      } else {
+        alert('Login fail');
       }
     });
 
