@@ -1,0 +1,1 @@
+SELECT * FROM chapter JOIN chapter_detail ON chapter.id_chapter = chapter_detail.id_chapter AND chapter.id_chapter = 1
